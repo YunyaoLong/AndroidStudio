@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.yunyao.shiyan1.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/TitleText"
+        android:textColor="@color/black"
+        android:text="@string/title"
+        android:id="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/sysu"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="@dimen/top_margin"
+        android:layout_centerHorizontal="true" />
+    <TableLayout
+        android:id="@+id/TableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_marginTop="@dimen/top_margin"
+        android:stretchColumns="1"
+        >
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_marginRight="@dimen/right_margin"
+            android:id="@+id/Row1">
+            <TextView
+                android:id="@+id/input_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageView"
+                android:text="@string/input_title"
+                style="@style/TextTheme"/>
+            <!--android:textColor="@color/black"-->
+            <!--android:textSize="@dimen/normalText"-->
+            <!--android:layout_column="0"-->
+            <EditText
+                android:id="@+id/inputBox"
+                android:textSize="@dimen/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageView"
+                android:hint="@string/input_hint"/>
+            <!--android:layout_column="1"-->
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/Row2"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_marginRight="@dimen/right_margin"
+            android:layout_width="wrap_content"
+            >
+            <TextView
+                android:id="@+id/password_title"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageView"
+                android:text="@string/password_title"
+                android:gravity="right"
+                style="@style/TextTheme"/>
+            <!--android:layout_column="0"-->
+            <EditText
+                android:id="@+id/passwordBox"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageView"
+                android:hint="@string/password_hint"
+                android:textSize="@dimen/normalText"/>
+            <!--android:layout_column="1"-->
+
+        </TableRow>
+    </TableLayout>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/top_margin"
+        android:orientation="horizontal"
+        android:layout_below="@id/TableLayout"
+        android:gravity="center"
+        android:id="@+id/radioGroup">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select1"
+            android:checked="true"
+            android:id="@+id/StudentRadioButton"
+            android:layout_marginRight="@dimen/RadioButton_margin"
+            style="@style/TextTheme" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select2"
+            android:layout_marginRight="@dimen/RadioButton_margin"
+            android:id="@+id/TeacherRadioButton"
+            style="@style/TextTheme" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select3"
+            android:layout_marginRight="@dimen/RadioButton_margin"
+            android:id="@+id/CorporationRadioButton"
+            style="@style/TextTheme" />
+
+        <RadioButton
+            android:id="@+id/AdministratorRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select4"
+            style="@style/TextTheme" />
+    </RadioGroup>
+    <TableLayout
+        android:id="@+id/TableLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/radioGroup"
+        android:layout_marginTop="@dimen/top_margin">
+        <TableRow
+            android:gravity="center">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background"
+                android:textColor="@color/white"
+                android:id="@+id/LoginButton"
+                android:text="登陆"
+                android:layout_marginRight="@dimen/Button_margin"
+                android:textSize="@dimen/normalText"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:id="@+id/RegisterButton"
+                android:background="@drawable/background"
+                android:textSize="@dimen/normalText"
+                android:text="注册"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>

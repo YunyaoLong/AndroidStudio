@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">ExperimentTwo</string>
+    <string name="title">中山大学课外体育积分电子认证系统</string>
+    <string name="input_title">用户名:</string>
+    <string name="password_title">密码:</string>
+    <string name="input_hint">请输入用户名</string>
+    <string name="password_hint">请输入密码</string>
+    <string name="select1">学生</string>
+    <string name="select2">老师</string>
+    <string name="select3">社团</string>
+    <string name="select4">管理者</string>
+    <string name="click_msg">login</string>
+    <string name="EmptyUsername">用户名不能为空</string>
+    <string name="EmptyPassword">密码不能为空</string>
+    <string name="trueUsername">Android</string>
+    <string name="truePassword">123456</string>
+    <string name="SelectOK">对话框“确定”按钮被点击。</string>
+    <string name="SelectCanCel">对话框“取消”按钮被点击。</string>
+    <string name="AlertDialogTitle">提示</string>
+    <string name="AlertDialogOK">确定</string>
+    <string name="AlertDialogCancel">取消</string>
+    <string name="LoginSuccess">登录成功</string>
+    <string name="LoginFail">登录失败</string>
+    <string name="SelectStudentButton">学生身份注册功能尚未开启</string>
+    <string name="SelectTeacherButton">老师身份注册功能尚未开启</string>
+    <string name="SelectCorporationButton">社团身份注册功能尚未开启</string>
+    <string name="SelectAdministratorButton">管理者身份注册功能尚未开启</string>
+    <string name="TapStudentButton">学生身份被选中</string>
+    <string name="TapTeacherButton">老师身份被选中</string>
+    <string name="TapCorporationButton">社团身份被选中</string>
+    <string name="TapAdministratorButton">管理者身份被选中</string>
+</resources>
