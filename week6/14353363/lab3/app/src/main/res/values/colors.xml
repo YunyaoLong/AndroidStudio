@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="black_argb">#D5000000</color>
+    <color name="white">#FFF</color>
+    <color name="gray_argb">#8A000000</color>
+    <color name="line_color">#1E000000</color>
+    <color name="Button_Color">#3F51B5</color>
+    <color name="Aaron_Color">#BB4C3B</color>
+    <color name="Elvis_Color">#c48d30</color>
+    <color name="David_Color">#4469b0</color>
+    <color name="Edwin_Color">#20A17B</color>
+    <color name="Frank_Color">#BB4C3B</color>
+    <color name="Joshua_Color">#c48d30</color>
+    <color name="Ivan_Color">#4469b0</color>
+    <color name="Mark_Color">#20A17B</color>
+    <color name="Joseph_Color">#BB4C3B</color>
+    <color name="Phoebe_Color">#c48d30</color>
+    <color name="icon_background">#00000000</color>
+</resources>

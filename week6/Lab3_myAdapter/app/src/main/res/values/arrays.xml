@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="contact_name_List">
+        <item>Aaron</item>
+        <item>Elvis</item>
+        <item>David</item>
+        <item>Edwin</item>
+        <item>Frank</item>
+        <item>Joshua</item>
+        <item>Ivan</item>
+        <item>Mark</item>
+        <item>Joseph</item>
+        <item>Phoebe</item>
+    </string-array>
+
+    <string-array name="Back_Color">
+        <item>#BB4C3B</item>
+        <item>#c48d30</item>
+        <item>#4469b0</item>
+        <item>#20A17B</item>
+        <item>#BB4C3B</item>
+        <item>#c48d30</item>
+        <item>#4469b0</item>
+        <item>#20A17B</item>
+        <item>#BB4C3B</item>
+        <item>#c48d30</item>
+
+    </string-array>
+    <string-array name="phoneNumber">
+        <item>17715523654</item>
+        <item>18825653224</item>
+        <item>15052116654</item>
+        <item>18854211875</item>
+        <item>13955188541</item>
+        <item>13621574410</item>
+        <item>15684122771</item>
+        <item>17765213579</item>
+        <item>13315466578</item>
+        <item>17895466428</item>
+
+    </string-array>
+    <string-array name="address">
+        <item>江苏苏州电信</item>
+        <item>广东揭阳移动</item>
+        <item>江苏无锡移动</item>
+        <item>山东青岛移动</item>
+        <item>安徽合肥移动</item>
+        <item>江苏苏州移动</item>
+        <item>山东烟台联通</item>
+        <item>广东珠海电信</item>
+        <item>河北石家庄电信</item>
+        <item>山东东营移动</item>
+    </string-array>
+
+    <string-array name="more">
+        <item>编辑联系人</item>
+        <item>分享联系人</item>
+        <item>加入黑名单</item>
+        <item>删除联系人</item>
+    </string-array>
+
+    <string-array name="first">
+        <item>A</item>
+        <item>E</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>J</item>
+        <item>I</item>
+        <item>M</item>
+        <item>J</item>
+        <item>P</item>
+
+
+    </string-array>
+</resources>
+
+
+
+
+

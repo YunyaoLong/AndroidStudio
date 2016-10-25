@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="22"
+    density="420dpi"
+    format="7"
+    timestamp="25920457979132"
+    token="-26392497915756845" >
+
+    <task
+        name="javac"
+        duration="37936" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="1236" />
+    <task
+        name="verifier"
+        duration="487" />
+
+    <artifact
+        location="D:\AndroidStudio_workspace\week2\MyApplication\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
+
+    <build timestamp="25920457979132" >
+        <artifact
+            location="D:\AndroidStudio_workspace\week2\MyApplication\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>
