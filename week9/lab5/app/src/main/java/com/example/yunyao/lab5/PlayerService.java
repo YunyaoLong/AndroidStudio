@@ -21,6 +21,7 @@ import java.security.Provider;
             return PlayerService.this;
         }
     }
+    //mp用来检查音乐播放的当前状态
     public static MediaPlayer mp = new MediaPlayer();
     boolean isPause = false;
     String playjudge = "Lab6.Music.Play";
@@ -80,7 +81,8 @@ import java.security.Provider;
         if(mp != null) {
             mp.stop();
             try {
-                mp.prepare(); // 在调用stop后如果需要再次通过start进行播放,需要之前调用prepare函数
+                //在调用stop后如果需要再次通过start进行播放,需要之前调用prepare函数
+                mp.prepare();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -92,7 +94,7 @@ import java.security.Provider;
         public PreparedListener(int positon) {
             this.positon = positon;
         }
-
+        //检查音频文件的加载状态
         @Override
         public void onPrepared(MediaPlayer mp) {
             mp.start();    //开始播放

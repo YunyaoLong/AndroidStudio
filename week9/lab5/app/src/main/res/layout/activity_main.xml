@@ -56,7 +56,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="10:00"
             android:id="@+id/totaltime"
-            android:layout_alignBottom="@+id/audioTrack"
+            android:layout_alignBottom="@id/seekBar"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true" />
 
