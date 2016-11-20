@@ -25,7 +25,6 @@
             android:layout_weight="1"
             android:gravity="center"
             android:maxEms="4"
-            android:singleLine="true"
             android:ellipsize="end" />
 
         <TextView
@@ -36,7 +35,6 @@
             android:layout_weight="2"
             android:gravity="center"
             android:maxEms="20"
-            android:singleLine="true"
             android:ellipsize="end" />
     </LinearLayout>
 

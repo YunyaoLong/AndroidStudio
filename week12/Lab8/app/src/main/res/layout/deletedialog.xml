@@ -5,7 +5,7 @@
     android:background="#11ffffff">
 
     <LinearLayout
-        android:layout_width="260dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical">
@@ -15,10 +15,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center"
-            android:layout_margin="15dp"
             android:text="是否删除?"
+            android:layout_margin="15dp"
             android:textColor="#38ADFF"
-            android:textSize="16sp" />
+            android:textSize="25dp"/>
 
         <View
             android:layout_width="match_parent"
@@ -27,12 +27,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/DeleteNo"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
@@ -49,8 +49,8 @@
                 android:background="@color/dividecolor"/>
 
             <Button
-                android:id="@+id/DeleteYess"
-                android:layout_width="0dp"
+                android:id="@+id/DeleteYes"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
