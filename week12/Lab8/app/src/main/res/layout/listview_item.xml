@@ -12,10 +12,7 @@
             android:text="默认用户名"
             android:id="@+id/InfoListViewNameText"
             android:layout_weight="1"
-            android:gravity="center"
-            android:maxLength="4"
-            android:singleLine="true"
-            android:ellipsize="marquee"/>
+            android:gravity="center"/>
 
         <TextView
             android:layout_width="60dp"

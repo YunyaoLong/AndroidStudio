@@ -1,34 +1,33 @@
 package com.example.yunyao.lab8;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
 /**
- * Created by yunyao on 2016/11/20.
+ * Created by yunyao on 2016/11/21.
  */
-public class myDB {
-    private String InfoObjectNameText;      //姓名
-    private String InfoObjectBirthdayText; //生日
-    private String InfoObjectGiftText;      //礼物
-    private String InfoObjectPhoneText;     //号码
+public class myDB extends SQLiteOpenHelper {
+    private static final String DB_NAME = "lab8";
+    private static final String TABLE_NAME = "Content";
+    private static final int DB_VERSION = 1;
 
-    public void setInfoObjectNameText(String temp){ InfoObjectNameText = temp;}
-    public void setInfoObjectBirthdayText(String temp){ InfoObjectBirthdayText = temp;}
-    public void setInfoObjectGiftText(String temp){ InfoObjectGiftText = temp;}
-    public void setInfoObjectPhoneText(String temp){ InfoObjectPhoneText = temp;}
-
-    public String getInfoObjectNameText(){return InfoObjectNameText;}
-    public String getInfoObjectBirthdayText(){return InfoObjectBirthdayText;}
-    public String getInfoObjectGiftText(){return InfoObjectGiftText;}
-    public String getInfoObjectPhoneText(){return InfoObjectPhoneText;}
-
-    myDB(){
-        InfoObjectNameText = null;
-        InfoObjectBirthdayText = null;
-        InfoObjectGiftText = null;
-        InfoObjectPhoneText = null;
+    public myDB(Context context) {
+        //第一个参数是上下文对象，用于创建数据库，第二个参数是数据库名称，第三个参数是游标，第四个参数是版本
+        super(context, DB_NAME+".db", null, DB_VERSION);
     }
-    myDB(String Name, String Bir, String Gift, String PN){
-        InfoObjectNameText = Name;
-        InfoObjectBirthdayText = Bir;
-        InfoObjectGiftText = Gift;
-        InfoObjectPhoneText = PN;
+
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        String CREATE_TABLE = "create table if not exists "
+                + TABLE_NAME
+                + "(name text primary key, birthday text, gift text, number text, flag TINYINT)";
+        sqLiteDatabase.execSQL(CREATE_TABLE);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(sqLiteDatabase);
     }
 }

@@ -4,19 +4,17 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by yunyao on 2016/11/20.
  */
 public class MyAdapter extends BaseAdapter{
 
-    private List<myDB> mData;//定义数据。
+    private List<Content> mData;//定义数据。
     private Context context;
     private LayoutInflater mInflater;//定义Inflater,加载我们自定义的布局。
 
@@ -24,7 +22,7 @@ public class MyAdapter extends BaseAdapter{
     定义构造器，在Activity创建对象Adapter的时候将数据data和Inflater传入自定义的Adapter中进行处理。
     */
     private int resourceId;
-    public MyAdapter(Context context, int resource, List<myDB> mData) {
+    public MyAdapter(Context context, int resource, List<Content> mData) {
         this.context = context;
         this.mData = mData;
         resourceId = resource;
@@ -44,7 +42,7 @@ public class MyAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        myDB mydb = mData.get(position);
+        Content content = mData.get(position);
         View view;
         ViewHolder viewHolder;
         //没有加载过布局的情况下，重新加载一遍布局
@@ -65,9 +63,9 @@ public class MyAdapter extends BaseAdapter{
             view=convertView;
             viewHolder=(ViewHolder)view.getTag();
         }
-        viewHolder.InfoListViewNameText.setText(mydb.getInfoObjectNameText());
-        viewHolder.InfoListViewBirthdayText.setText(mydb.getInfoObjectBirthdayText());
-        viewHolder.InfoListViewGiftText.setText(mydb.getInfoObjectGiftText());
+        viewHolder.InfoListViewNameText.setText(content.getInfoObjectNameText());
+        viewHolder.InfoListViewBirthdayText.setText(content.getInfoObjectBirthdayText());
+        viewHolder.InfoListViewGiftText.setText(content.getInfoObjectGiftText());
         return view;
     }
 

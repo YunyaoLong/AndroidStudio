@@ -25,7 +25,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:id="@+id/editText" />
     </LinearLayout>
 
@@ -43,7 +42,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:id="@+id/editText2" />
     </LinearLayout>
 
@@ -61,7 +59,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:id="@+id/editText3" />
 
     </LinearLayout>
