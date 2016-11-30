@@ -42,7 +42,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TooFastInput = "发现错误：免费用户不能使用高速访问。http://www.webxml.com.cn/";
     private static final String TooOftenInput = "发现错误：免费用户24小时内访问超过规定数量。http://www.webxml.com.cn/";
     private static final String NullCity = "查询结果为空";
+    private static final String NullCityWeb = "查询结果为空。http://www.webxml.com.cn/";
+    private static final int NoUserId = 1, SomethingWrong = 2;
 
+    private static int Static_Flag = 0;
     private static String XMLString = null;
     private static TextView City_editText;
     private static Button Search_Button;
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Static_Flag = 0;
         bindViews();
     }
 
@@ -83,22 +87,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.Search_Button:
+                Static_Flag = 0;
                 try {
+                    //输入框不能为空
                     if (City_editText.getText().toString().equals("")){
                         Toast.makeText(MainActivity.this, "城市名字不能为空！", Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    //检查是不是有网络
                     if (!isNetworkConnected(MainActivity.this)){
                         Toast.makeText(MainActivity.this, "当前没有可用网络！", Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    //开始网络连接
                     getWeather();
-                    if (weather.City.equals(TooFastInput)){
-                        Toast.makeText(MainActivity.this, "您的点击速度过快，二次查询间隔<600ms", Toast.LENGTH_SHORT).show();
-                    }else if(weather.City.equals(TooOftenInput)){
-                        Toast.makeText(MainActivity.this, "免费用户24小时内访问超过规定数量50次", Toast.LENGTH_SHORT).show();
-                    }else if(weather.City.equals(NullCity)){
-                        Toast.makeText(MainActivity.this, "当前城市不存在，请重新输入", Toast.LENGTH_SHORT).show();
+                    //如果网络连接中出现了某些问题，将错误信息和一个存放在weather.City中的String变量进行比对，检查错误原因
+                    if (Static_Flag == SomethingWrong){
+                        if (weather.City.equals(TooFastInput)){
+                            Toast.makeText(MainActivity.this, "您的点击速度过快，二次查询间隔<600ms", Toast.LENGTH_SHORT).show();
+                        }else if(weather.City.equals(TooOftenInput)){
+                            Toast.makeText(MainActivity.this, "免费用户24小时内访问超过规定数量50次", Toast.LENGTH_SHORT).show();
+                        }else if(weather.City.equals(NullCity) || weather.City.equals(NullCityWeb)){
+                        //注册用户和非注册用户返回的XML文件不一样，导致有两种判断情况
+                            Toast.makeText(MainActivity.this, "当前城市不存在，请重新输入", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 } catch (Exception e) {
                     Log.i("Click_Debug", e.getMessage());
@@ -138,12 +150,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			}
 			event = parser.next();
 		}
+        if(i == 1) Static_Flag = SomethingWrong;
+        else if (i == 34) Static_Flag = NoUserId;
+        Log.i("parserXML", "Flag设置完成");
 		weather = new Weather();
 
         weather.City = weatherData[0];
-        if(weather.City.equals(TooFastInput)
-                || weather.City.equals(TooOftenInput)
-                || weather.City.equals(NullCity)){
+        if(Static_Flag == SomethingWrong){
             Log.i("ParserXMLDebug", "不正常"+weather.City);
             return;
         }
@@ -155,6 +168,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         weather.Day3_Date = weatherData[19].split(" ")[0];weather.Day3_Temrature = weatherData[20];weather.Day3_Weather = weatherData[21];
         weather.Day4_Date = weatherData[24].split(" ")[0];weather.Day4_Temrature = weatherData[25];weather.Day4_Weather = weatherData[26];
         weather.Day5_Date = weatherData[29].split(" ")[0];weather.Day5_Temrature = weatherData[30];weather.Day5_Weather = weatherData[31];
+        if (Static_Flag == NoUserId){
+            weather.Day6_Date = "";weather.Day6_Temrature = "";weather.Day6_Weather = "";
+            weather.Day7_Date = "";weather.Day7_Temrature = "";weather.Day7_Weather = "";
+            return;
+        }
         weather.Day6_Date = weatherData[34].split(" ")[0];weather.Day6_Temrature = weatherData[35];weather.Day6_Weather = weatherData[36];
         weather.Day7_Date = weatherData[39].split(" ")[0];weather.Day7_Temrature = weatherData[40];weather.Day7_Weather = weatherData[41];
         Log.i("Debug_weather", weather.toString());
@@ -175,6 +193,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         public void run() {
             // 获取手机所有连接管理对象（包括对wi-fi,net等连接的管理）
             try {
+                Log.i("runableDebug", "Runable");
                 //String Path = "http://www.webxml.com.cn/WebServices/WeatherWebService.asmx/getWeatherbyCityName?theCityName=";
                 //URL url = new URL(Path + java.net.URLEncoder.encode(CityName, "UTF-8"));
                 //HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -185,20 +204,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 connection.setRequestMethod("POST");
                 DataOutputStream out = new DataOutputStream(connection.getOutputStream());
                 String request = URLEncoder.encode(City_editText.getText().toString(), "utf-8");
-                out.writeBytes("theCityCode=" + request + "&theUserID=" + WebServiceId);
+                out.writeBytes("theCityCode=" + request + "&theUserID=");
 
                 InputStream instream = connection.getInputStream();
 
                 //解析xml文件
                 parserXML(instream);
                 
-                if(weather.City.equals(TooFastInput)
-                        || weather.City.equals(TooOftenInput)
-                        || weather.City.equals(NullCity)) {
+                if(Static_Flag == SomethingWrong) {
+                    Log.i("runableDebug", "有点问题");
                     return;
                 }
 
-                Log.i("runableDebug", weather.City);
+                Log.i("runableDebug", "解析完成");
                 handler.sendMessage(new Message());
 
                 //将instream转成string
@@ -237,6 +255,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Current_Time.setText(weather.Current_Time);
             Temperature.setText(weather.Temperature);
             Today_Temrature.setText(weather.Day1_Temrature);
+            if (Static_Flag == NoUserId) Today_Temrature.setText(weather.Day2_Temrature);
             Dampness.setText(weather.Dampness);
             Air_quality.setText(weather.Ult_Air);
             Wind.setText(weather.Wind);
@@ -263,8 +282,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             list.add(new RecyclerWeather(weather.Day3_Date, weather.Day3_Temrature, weather.Day3_Weather));
             list.add(new RecyclerWeather(weather.Day4_Date, weather.Day4_Temrature, weather.Day4_Weather));
             list.add(new RecyclerWeather(weather.Day5_Date, weather.Day5_Temrature, weather.Day5_Weather));
-            Log.i("getRecyclerDateDebug", weather.Day5_Date);
-            //if(weather.Day6_Date.equals("")){ return list;}
+            //Log.i("getRecyclerDateDebug", weather.Day5_Date);
+            if(Static_Flag == NoUserId){ return list;}
             list.add(new RecyclerWeather(weather.Day6_Date, weather.Day6_Temrature, weather.Day6_Weather));
             list.add(new RecyclerWeather(weather.Day7_Date, weather.Day7_Temrature, weather.Day7_Weather));
             return list;
