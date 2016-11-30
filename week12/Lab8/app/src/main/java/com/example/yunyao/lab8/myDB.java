@@ -19,6 +19,7 @@ public class myDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        //建立表
         String CREATE_TABLE = "create table if not exists "
                 + TABLE_NAME
                 + "(name text primary key, birthday text, gift text, number text, flag TINYINT)";
@@ -27,6 +28,7 @@ public class myDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        //删除表
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(sqLiteDatabase);
     }

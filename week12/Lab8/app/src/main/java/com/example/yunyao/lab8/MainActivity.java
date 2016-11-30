@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
             contact = cursor.getString(nameFieldColumnIndex);
             //取得电话号码
             String ContactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
-            Cursor phone = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID +"="+ ContactId, null, null);
+            Cursor phone = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
+                    ContactsContract.CommonDataKinds.Phone.CONTACT_ID +"="+ ContactId, null, null);
 
             PhoneNumber = "";
             while(phone.moveToNext()) {
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         //将自定义适配器与listView绑定
         MainlistView.setAdapter(myAdapter);
 
-        //将联系人导入数据库
+        //将联系人导入数据库，如果第一次打开，就导入所有通讯录数据，如果以前导入过，就不再重复导入
         if (otherContentService.getCount() == 0) initUsers();
         else{
             contentList.clear();
@@ -92,7 +93,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "找到了"+temp.size()+"个元素", Toast.LENGTH_LONG).show();
             for (int i = 0; i<temp.size(); ++i) {
                 contentList.add(temp.get(i));
-                max_num = temp.get(i).getFlag();
+                //更新max_num，得到ListView中最大的flag，这样新插入数据的时候，就能够保证新的flag最大（flag = max_num+1）
+                max_num = (max_num > temp.get(i).getFlag() ? max_num : temp.get(i).getFlag());
             }
         }
 
@@ -138,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
                         String Gift = InfoObjectGiftText.getText().toString();
                         String Phone = InfoObjectPhoneText.getText().toString();
                         int flag = contentList.get(i).getFlag();
+                        //一定要保持flag不变，否则可能会造成在ListView中顺序改变
                         Content content = new Content(Name, Birthday, Gift, Phone, flag);
                         otherContentService.update(content);
                         contentList.remove(i);
@@ -170,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         String Name =contentList.get(i).getInfoObjectNameText();
                         String Phone = contentList.get(i).getInfoObjectPhoneText();
+                        //将生日礼物清空，flag清0，以防以后重新插入该条目时出现问题
                         Content content = new Content(Name, "", "", Phone, 0);
                         otherContentService.update(content);
                         contentList.remove(i);
@@ -195,13 +199,17 @@ public class MainActivity extends AppCompatActivity {
             String name = data.getStringExtra("name");
             String birthday = data.getStringExtra("birthday");
             String gift = data.getStringExtra("gift");
+
+            //获取电话号码
             String number = "无";
             if (otherContentService.find(name) != null){
                 number = otherContentService.find(name).getInfoObjectPhoneText();
             }
+            //如果数据库中没有出现过这个人，就插入，如果有这个人，就更新，此时记得更新max_num
             Content content = new Content(name, birthday, gift, number, ++max_num);
             if (otherContentService.find(name) == null) otherContentService.save(content);
             else otherContentService.update(content);
+
             contentList.add(content);
             myAdapter.notifyDataSetChanged();
         }

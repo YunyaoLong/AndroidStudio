@@ -65,7 +65,7 @@ public class OtherContentService {
         String whereClause = "name = ?";
         Cursor cursor = db.query(TABLE_NAME, new String[]{"name", "birthday", "gift", "number", "flag"},
                 whereClause, new String[]{name}, null, null, null);
-        //select personid,name from person where personid=? order by ... limit 3,5
+
         if(cursor.moveToFirst()){
             String ObjectName = cursor.getString(cursor.getColumnIndex("name"));
             String ObjectBirthday = cursor.getString(cursor.getColumnIndex("birthday"));

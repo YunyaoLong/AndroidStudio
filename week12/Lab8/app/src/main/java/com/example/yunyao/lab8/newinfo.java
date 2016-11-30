@@ -27,6 +27,7 @@ public class newinfo extends Activity {
                     Toast.makeText(newinfo.this, "名字为空，请完善", Toast.LENGTH_SHORT).show();
                 }else if(MainActivity.otherContentService.find(editText.getText().toString()) == null
                         || (MainActivity.otherContentService.find(editText.getText().toString()).getFlag() == 0)) {
+                    //如果数据库中没有这个名字或者数据库中有这个名字但是flag为0（即没有在MainActivity中出现）
                     Intent intent = new Intent(newinfo.this, MainActivity.class);
                     intent.putExtra("name", editText.getText().toString());
                     intent.putExtra("birthday", editText2.getText().toString());

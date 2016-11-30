@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">天气预报</string>
+    <string name="editTextCityName">保定</string>
+    <string name="buttonExe">查询</string>
+    <string name="errorEdit">请输入城市名</string>
+    <string name="errorConn">connection error!</string>
+    <string name="title_activity_weather">Weather</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">天气信息</string>
+    <string name="refresh">更新</string>
+</resources>

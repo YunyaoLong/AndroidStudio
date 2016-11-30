@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "24.0.3"
+
+    defaultConfig {
+        applicationId "com.example.yunyao.lab9"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile files('libs/ksoap2-j2me-core-2.1.2.jar')
+    compile files('libs/ksoap2-j2me-full-2.1.2.jar')
+    compile files('libs/ksoap2-android-2.5.4.jar')
+    compile files('libs/ksoap2-generating-stub-0.1-SNAPSHOT-jar-with-dependencies.jar')
+    compile files('libs/android-support-v7-recyclerview.jar')
+    compile files('D:/AndroidStudio_workspace/week14/Lab9/gradle/wrapper/android-support-v7-recyclerview.jar')
+}
