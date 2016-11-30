@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String WebServiceId = "2ac00d1fc2f34d74b07b4177d12d0431";
     private static final String TooFastInput = "发现错误：免费用户不能使用高速访问。http://www.webxml.com.cn/";
     private static final String TooOftenInput = "发现错误：免费用户24小时内访问超过规定数量。http://www.webxml.com.cn/";
+    private static final String NullCity = "查询结果为空";
 
     private static String XMLString = null;
     private static TextView City_editText;
@@ -83,6 +84,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.Search_Button:
                 try {
+                    if (City_editText.getText().toString().equals("")){
+                        Toast.makeText(MainActivity.this, "城市名字不能为空！", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     if (!isNetworkConnected(MainActivity.this)){
                         Toast.makeText(MainActivity.this, "当前没有可用网络！", Toast.LENGTH_SHORT).show();
                         return;
@@ -92,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Toast.makeText(MainActivity.this, "您的点击速度过快，二次查询间隔<600ms", Toast.LENGTH_SHORT).show();
                     }else if(weather.City.equals(TooOftenInput)){
                         Toast.makeText(MainActivity.this, "免费用户24小时内访问超过规定数量50次", Toast.LENGTH_SHORT).show();
+                    }else if(weather.City.equals(NullCity)){
+                        Toast.makeText(MainActivity.this, "当前城市不存在，请重新输入", Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     Log.i("Click_Debug", e.getMessage());
@@ -115,7 +122,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			switch (event) {
 			case XmlPullParser.START_TAG:
 				if ("string".equals(parser.getName())) {
-
                     String temp[] = parser.nextText().split("[；]");
                     for(String temptemp : temp){
                         if (temptemp.equals("") || temptemp.equals("\n")) continue;
@@ -136,7 +142,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         weather.City = weatherData[0];
         if(weather.City.equals(TooFastInput)
-                || weather.City.equals(TooOftenInput)){
+                || weather.City.equals(TooOftenInput)
+                || weather.City.equals(NullCity)){
             Log.i("ParserXMLDebug", "不正常"+weather.City);
             return;
         }
@@ -184,12 +191,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 //解析xml文件
                 parserXML(instream);
-                /*
+                
                 if(weather.City.equals(TooFastInput)
-                        || weather.City.equals(TooOftenInput)){
+                        || weather.City.equals(TooOftenInput)
+                        || weather.City.equals(NullCity)) {
                     return;
+                }
 
-*/                Log.i("runableDebug", weather.City);
+                Log.i("runableDebug", weather.City);
                 handler.sendMessage(new Message());
 
                 //将instream转成string
