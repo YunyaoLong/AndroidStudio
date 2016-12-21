@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/list_background"
+    tools:context="com.example.exchange.ChatActivity"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:background="@color/colorPrimaryGreen"
+        android:id="@+id/header">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/big_text"
+            android:id="@+id/name"
+            android:text="姓名"
+            android:textColor="@color/colorPrimaryWhite"/>
+
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/pre_page_button"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="12dp"
+            android:id="@+id/activity_chat_back_button"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:background="@color/colorPrimaryGreen"
+        android:id="@+id/footer"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:id="@+id/send"
+            android:background="@drawable/send_message_send_button"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:textSize="@dimen/main_text"
+            android:id="@+id/edit"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/send"
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_marginEnd="18dp" />
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/colorPrimaryGreen"
+        android:layout_above="@id/footer"/>
+
+    <ScrollView
+        android:layout_below="@id/header"
+        android:layout_above="@id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:fillViewport="true"
+        android:id="@+id/scrollView">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/main_text"
+            android:id="@+id/history"/>
+    </ScrollView>
+
+
+</RelativeLayout>

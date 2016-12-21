@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="view_compass">false</item>
+    <item type="id" name="pressure_altitude">false</item>
+    <item type="id" name="pressure_show">false</item>
+    <item type="id" name="altitude_show">false</item>
+    <item type="id" name="layout_direction">false</item>
+    <item type="id" name="compass_pointer">false</item>
+    <item type="id" name="layout_angle">false</item>
+    <item type="id" name="bottom_unit">false</item>
+    <item type="id" name="textview_location_latitude">false</item>
+    <item type="id" name="textview_location_latitude_degree">false</item>
+    <item type="id" name="textview_location_longitude">false</item>
+    <item type="id" name="textview_location_longitude_degree">false</item>
+    <item type="id" name="bottom_unit_pressure">false</item>
+    <item type="id" name="textview_pressure">false</item>
+    <item type="id" name="bottom_unit_altitude">false</item>
+    <item type="id" name="textview_altitude">false</item>
+    <item type="id" name="view_guide">false</item>
+    <item type="id" name="guide_description">false</item>
+    <item type="id" name="guide_animation">false</item>
+    <item type="id" name="menu_calibrate_altitude">false</item>
+    <item type="id" name="menu_calibrate">false</item>
+</resources>

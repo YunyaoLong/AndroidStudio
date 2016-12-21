@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MapSensor</string>
+    <string name="no_provider">No location provider to use</string>
+    <string name="rotation_angle">旋转角度: %.2f</string>
+    <string name="latitude">纬度: %.6f</string>
+    <string name="longitude">经度: %.6f</string>
+    <string name="shake_counter">摇一摇计数: %d</string>
+    <string name="server_ak">UXILHzNXb4EAP4RNF6GUtKRGgRpgILwD</string>
+    <string name="coor_change">http://api.map.baidu.com/geoconv/v1/?coords=%1$f,%2$f&amp;from=1&amp;to=5&amp;ak=%3$s</string>
+    <string name="geo_decode">http://api.map.baidu.com/cloudrgc/v1?location=%1$f,%2$f&amp;geotable_id=135675&amp;coord_type=bd09ll&amp;ak=%3$s</string>
+
+</resources>

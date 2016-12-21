@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.yunyao.lab10.MainActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:id="@+id/angle"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:background="@color/colorOrange"
+        android:gravity="center">
+
+        <com.example.yunyao.lab10.ArrowView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:src="@mipmap/pointer"
+            android:id="@+id/angle_pointer"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/angle_value"
+            android:text="旋转角度：-41.82"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:id="@+id/position"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:background="@color/colorBlue"
+        android:gravity="center_vertical|center">
+
+        <TextView
+            android:text="经度：XXXXXXXXXXX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/longitude"
+            android:gravity="center"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:text="纬度：XXXXXXXXXXX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/latitude"
+            android:gravity="center"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:text="广东省广州市番禺区贝岗村大街"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/current_position"
+            android:gravity="center"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/shake"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:background="@color/colorGreen"
+        android:gravity="center_vertical|center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="摇一摇计数：X"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/shake_num"/>
+
+    </LinearLayout>
+
+</LinearLayout>

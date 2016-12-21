@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/list_background"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.exchange.CourseDetailActivity">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/header">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/big_text"
+            android:text="课程详情"
+            android:layout_centerInParent="true"
+            android:id="@+id/title"/>
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="不公开"
+            android:textOn="公开"
+            android:layout_alignParentRight="true"
+            android:id="@+id/course_public"/>
+    </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/header">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TableRow android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView android:text="学年度："
+                            style="@style/CourseDetailTableTheme" />
+                        <TextView
+                            android:id="@+id/course_year"
+                            style="@style/CourseDetailTableContentTheme" />
+                    </TableRow>
+                    <TableRow android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView android:text="学期："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_semester"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="课程号："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_id"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="课程名称："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_name"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="教学班号："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_class_id"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="教学班名称："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_class_name"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="课程类别："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_type"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="英文名称："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_english_name"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="开课单位："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_department"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="上课校区："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_zone"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="任课老师："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_teacher"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="学分："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_credit"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="课容量："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_capacity"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="总学时："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_hour"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="已选人数："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_chosen"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="实选人数："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_real_chosen"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="空位人数："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_remain"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="待筛选人数："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_to_filter"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="考试方式："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_exam_type"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="筛选方式："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_filter_type"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="筛选状态："
+                            style="@style/CourseDetailTableTheme"/>
+                        <TextView
+                            android:id="@+id/course_select"
+                            style="@style/CourseDetailTableContentTheme"/>
+                    </TableRow>
+                </TableLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView android:text="上课时间地点："
+                        style="@style/CourseDetailTableTheme"/>
+                    <TextView
+                        android:id="@+id/course_time_and_place"
+                        style="@style/CourseDetailTableContentTheme"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView android:text="选课学生要求："
+                        style="@style/CourseDetailTableTheme"/>
+                    <TextView
+                        android:id="@+id/course_require"
+                        style="@style/CourseDetailTableContentTheme"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView android:text="课程简介："
+                        style="@style/CourseDetailTableTheme"/>
+                    <TextView
+                        android:id="@+id/course_intr"
+                        style="@style/CourseDetailTableContentTheme"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView android:text="备注："
+                        style="@style/CourseDetailTableTheme"/>
+                    <TextView
+                        android:id="@+id/course_comments"
+                        style="@style/CourseDetailTableTheme"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+</RelativeLayout>
