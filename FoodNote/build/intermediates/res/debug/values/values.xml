@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/D:/HealthSDK/SamsungDigitalHealthSDK_20160225/HealthData_v1.2.1/Samples/FoodNote/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">Food Note</string>
+    <string name="chooseFood">chooseFood</string>
+    <string name="confirm">Confirm</string>
+    <string name="delete">Delete</string>
+    <string name="desc">Total Calories</string>
+    <string name="editTextTitle">Enter the take times</string>
+    <string name="moveBefore">Move Day Before</string>
+    <string name="moveNext">Move Day Next</string>
+    <string name="title1">Today</string>
+    <string name="title2">Breakfast</string>
+    <string name="title3">Lunch</string>
+    <string name="title4">Dinner</string>
+    <string name="title5">Morning Snack</string>
+    <string name="title6">Afternoon Snack</string>
+    <string name="title7">Evening Snack</string>
+    <string name="total">Total</string>
+    <string name="unit1">Cals</string>
+    <!-- From: file:/D:/HealthSDK/SamsungDigitalHealthSDK_20160225/HealthData_v1.2.1/Samples/FoodNote/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>

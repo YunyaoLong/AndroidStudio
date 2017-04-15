@@ -6,12 +6,8 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
-/**
- * Created by yunyao on 2016/12/21.
- */
 
 public class ArrowView extends ImageView {
-    private static final float ROTATION_THRESHOLD = 0.5f;
     public ArrowView(Context context){
         super(context);
         init();
@@ -26,11 +22,13 @@ public class ArrowView extends ImageView {
     private void init() {mCurRotation = 0.0f;}
     public float getCurRotation(){return mCurRotation;}
     public void onUpdateRotation(float newRotation) {
+        //旋转图标
         RotateAnimation animation = new RotateAnimation(mCurRotation, newRotation,
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         animation.setDuration(200);
         animation.setFillAfter(true);
         startAnimation(animation);
+        //如果旋转角度小于-180度，就+360，让其变成正数
         newRotation = newRotation<-180 ? newRotation+360 : newRotation;
         mCurRotation = newRotation;
     }

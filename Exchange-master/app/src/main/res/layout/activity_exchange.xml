@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/main_background"
+    tools:context="com.example.exchange.ExchangeActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:background="@color/colorPrimaryGreen"
+        android:orientation="horizontal"
+        android:id="@+id/header"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="@dimen/iron_width"
+            android:layout_height="wrap_content"
+            android:id="@+id/mycourse_img"
+            android:layout_margin="10dp"
+            android:src="@mipmap/mycourse"
+            android:layout_weight="1"/>
+        <ImageView
+            android:layout_width="@dimen/iron_width"
+            android:layout_height="wrap_content"
+            android:id="@+id/platform_img"
+            android:layout_margin="10dp"
+            android:src="@mipmap/platform"
+            android:layout_weight="1"/>
+        <ImageView
+            android:layout_width="@dimen/iron_width"
+            android:layout_height="wrap_content"
+            android:id="@+id/chat_img"
+            android:layout_margin="10dp"
+            android:src="@mipmap/chat"
+            android:layout_weight="1"/>
+        <ImageView
+            android:layout_width="@dimen/iron_width"
+            android:layout_height="wrap_content"
+            android:id="@+id/exchange_img"
+            android:layout_margin="10dp"
+            android:src="@mipmap/exchange"
+            android:layout_weight="1"/>
+        <ImageView
+            android:layout_width="@dimen/iron_width"
+            android:layout_height="wrap_content"
+            android:id="@+id/contacts_img"
+            android:layout_margin="10dp"
+            android:src="@mipmap/contacts"
+            android:layout_weight="1"/>
+        <ImageView
+            android:layout_width="@dimen/iron_width"
+            android:layout_height="wrap_content"
+            android:id="@+id/request_img"
+            android:layout_margin="10dp"
+            android:src="@mipmap/request"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:visibility="gone"
+        android:id="@+id/course_layout"
+        android:background="@drawable/list_background"
+        android:orientation="vertical">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:id="@+id/course_list"
+            android:layout_weight="1">
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:visibility="visible"
+        android:id="@+id/chat_layout"
+        android:orientation="vertical"
+        android:background="@drawable/list_background">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:id="@+id/chat_list">
+
+        </ListView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:visibility="gone"
+        android:id="@+id/exchange_layout"
+        android:orientation="vertical">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:visibility="gone"
+        android:id="@+id/contacts_layout"
+        android:orientation="vertical"
+        android:background="@drawable/list_background">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:id="@+id/contact_list">
+        </ListView>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:visibility="gone"
+        android:id="@+id/request_layout"
+        android:orientation="vertical"
+        android:background="@drawable/list_background">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:id="@+id/request_list">
+
+        </ListView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/platform_layout"
+        android:layout_below="@id/header"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/course_layout">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:dividerHeight="0dp"
+            android:divider="@color/colorPrimaryWhite"
+            android:background="@drawable/post_list_background"
+            android:layout_weight="1"
+            android:id="@+id/post_list">
+        </ListView>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:background="@color/colorPrimaryGreen">
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/pre_page_button"
+                android:id="@+id/last_page"
+                android:visibility="invisible" />
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/next_page_button"
+                android:layout_toRightOf="@id/last_page"
+                android:id="@+id/next_page"/>
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/broadcast_button"
+                android:id="@+id/new_post"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

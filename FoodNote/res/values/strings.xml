@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Food Note</string>
+    <string name="desc">Total Calories</string>
+    <string name="title1">Today</string>
+    <string name="title2">Breakfast</string>
+    <string name="title3">Lunch</string>
+    <string name="title4">Dinner</string>
+    <string name="title5">Morning Snack</string>
+    <string name="title6">Afternoon Snack</string>
+    <string name="title7">Evening Snack</string>
+    <string name="total">Total</string>
+    <string name="unit1">Cals</string>
+    <string name="editTextTitle">Enter the take times</string>
+    <string name="confirm">Confirm</string>
+    <string name="moveBefore">Move Day Before</string>
+    <string name="moveNext">Move Day Next</string>
+    <string name="chooseFood">chooseFood</string>
+    <string name="delete">Delete</string>
+</resources>

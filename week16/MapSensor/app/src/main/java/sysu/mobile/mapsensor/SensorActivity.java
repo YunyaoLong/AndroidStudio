@@ -4,6 +4,7 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -117,8 +118,11 @@ public class SensorActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Location... params) {
             Location param = params[0];
+            Log.i("param","经度"+(param==null?"null":param.getLongitude())+"纬度"+(param==null?"null":param.getLatitude()));
             try {
                 String result = sendHttpRequest(String.format(getString(R.string.coor_change),
+                        param.getLongitude(), param.getLatitude(), getString(R.string.server_ak)));
+                Log.i("URL", String.format(getString(R.string.coor_change),
                         param.getLongitude(), param.getLatitude(), getString(R.string.server_ak)));
                 JSONObject jObject = new JSONObject(result);
                 JSONArray jsonArray = jObject.getJSONArray("result");
@@ -128,6 +132,9 @@ public class SensorActivity extends AppCompatActivity {
 
                 String decode = sendHttpRequest(String.format(getString(R.string.geo_decode),
                         y, x, getString(R.string.server_ak)));
+                Log.i("URL2", (String.format(getString(R.string.geo_decode),
+                        y, x, getString(R.string.server_ak))));
+                Log.i("decode", decode);
                 JSONObject geoObject = new JSONObject(decode);
                 return geoObject.getString("formatted_address");
             } catch (IOException | JSONException e) {
@@ -146,12 +153,14 @@ public class SensorActivity extends AppCompatActivity {
             URL url = new URL(request);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             InputStream is = connection.getInputStream();
+            Log.i("is_String", is.toString());
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             String response = "";
             String readLine;
             while ((readLine = br.readLine()) != null) {
                 response = response + readLine;
             }
+            Log.i("response", response);
             is.close();
             br.close();
             connection.disconnect();

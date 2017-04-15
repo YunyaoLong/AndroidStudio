@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\HealthSDK\SamsungDigitalHealthSDK_20160225\HealthData_v1.2.1\Samples\SimpleHealth\libs\samsung-digital-health-healthdata-1.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5eb73c7e7a818eabd3a417e2cfd043a8861499b3">
+        <dex dex="D:\HealthSDK\SamsungDigitalHealthSDK_20160225\HealthData_v1.2.1\Samples\SimpleHealth\build\intermediates\pre-dexed\debug\samsung-digital-health-healthdata-1.2.1-8571f2d2b75f1ef5110f4d8207bafeded8a44abb.jar" />
+    </item>
+
+</items>

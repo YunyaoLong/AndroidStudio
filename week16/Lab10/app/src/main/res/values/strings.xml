@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">Lab10</string>
-    <string name="server_ak">UXILHzNXb4EAP4RNF6GUtKRGgRpgILwD</string>
-    <string name="coor_change">http://api.map.baidu.com/geoconv/v1/?coords=%1$f,%2$f&amp;from=1&amp;to=5&amp;ak=%3$s</string>
-    <string name="geo_decode">http://api.map.baidu.com/cloudrgc/v1?location=%1$f,%2$f&amp;geotable_id=135675&amp;coord_type=bd09ll&amp;ak=%3$s</string>
+    <string name="app_name">lab10_by_yyl</string>
+    <string name="shake_text">摇一摇次数：%d</string>
+    <string name="angle_text">旋转角度为：%.2f</string>
+    <string name="long_text">经度：%f</string>
+    <string name="lat_text">纬度：%f</string>
+    <string name="server_ak">F9NHMlPUtwUB6dS1ivnaNGFmHgW2Ysn2</string>
+    <string name="geocoderv2">http://api.map.baidu.com/geocoder/v2/?output=json&amp;ak=%3$s&amp;location=%1$f,%2$f</string>
 </resources>

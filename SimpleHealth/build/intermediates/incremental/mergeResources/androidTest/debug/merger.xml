@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\HealthSDK\SamsungDigitalHealthSDK_20160225\HealthData_v1.2.1\Samples\SimpleHealth\src\androidTest\res"/><source path="D:\HealthSDK\SamsungDigitalHealthSDK_20160225\HealthData_v1.2.1\Samples\SimpleHealth\build\generated\res\rs\androidTest\debug"/><source path="D:\HealthSDK\SamsungDigitalHealthSDK_20160225\HealthData_v1.2.1\Samples\SimpleHealth\build\generated\res\generated\androidTest\debug"/></dataSet><mergedItems/></merger>
